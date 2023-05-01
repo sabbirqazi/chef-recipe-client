@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -83,7 +83,7 @@ const Navbar = () => {
         <div className="w-10 rounded-full">
           <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
-          <a className="btn btn-primary">Login</a>
+          <Link to={"/login"} className="btn btn-primary">Login</Link>
         </div>
       </div>
     </>
