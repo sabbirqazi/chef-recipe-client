@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import Hero from '../Hero/Hero';
 
 const Home = () => {
     return (
         <div>
-            <h1>This is home</h1>
+          <Hero></Hero>
         </div>
     );
 };
