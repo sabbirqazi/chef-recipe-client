@@ -2,10 +2,14 @@
 /* /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log('login page location', location)
+    const from = location.state?.from?.pathname || '/0'
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +20,9 @@ const Login = () => {
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
-          console.log(result.user);
+          const loggedInUser = result.user
+          console.log(loggedInUser);
+          navigate(from, { replace: true })
         })
         .catch((error) => {
           console.log(error.message);

@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     console.log('user in private route', user);
     if(loading){
-        return <div className="radial-progress" ></div>
+        return 
     }
 
     if(user){
