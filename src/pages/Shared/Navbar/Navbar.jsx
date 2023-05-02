@@ -1,8 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   return (
     <>
       <div className="navbar bg-gray-50">
@@ -29,24 +37,13 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-              <NavLink
-                  to="/"
-                  aria-label="Home"
-                  title="Home"
-               
-                >
+                <NavLink to="/" aria-label="Home" title="Home">
                   Home
                 </NavLink>
               </li>
-             
-              
+
               <li>
-              <NavLink
-                  to="/blog"
-                  aria-label="Blog"
-                  title="Blog"
-               
-                >
+                <NavLink to="/blog" aria-label="Blog" title="Blog">
                   Blog
                 </NavLink>
               </li>
@@ -57,33 +54,34 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-            <NavLink
-                  to="/"
-                  aria-label="Home"
-                  title="Home"
-              
-                >
-                  Home
-                </NavLink>
+              <NavLink to="/" aria-label="Home" title="Home">
+                Home
+              </NavLink>
             </li>
-           
+
             <li>
-            <NavLink
-                  to="/blog"
-                  aria-label="Blog"
-                  title="Blog"
-              
-                >
-                  Blog
-                </NavLink>
+              <NavLink to="/blog" aria-label="Blog" title="Blog">
+                Blog
+              </NavLink>
             </li>
+            <li></li>
           </ul>
         </div>
         <div className="navbar-end  lg:mr-20">
-        <div className="w-10 rounded-full">
-          <img src="" />
-        </div>
-          <Link to={"/login"} className="btn btn-primary">Login</Link>
+          {user && (
+            <div className="w-10 rounded-full">
+              <img src="" />
+            </div>
+          )}
+          {user ? (
+            <Link onClick={handleLogOut} className="btn btn-primary">
+              Logout
+            </Link>
+          ) : (
+            <Link to={"/login"} className="btn btn-primary">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>

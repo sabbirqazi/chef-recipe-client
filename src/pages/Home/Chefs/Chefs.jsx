@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Chefs = () => {
   const [chefsData, setChefsData] = useState([]);
@@ -28,7 +29,9 @@ const Chefs = () => {
               <p>{chef?.number_of_recipes} recipes</p>
               <p>{chef?.likes} likes</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary"> View Recipes</button>
+              <Link to={`/${chef?.id}`}>
+              <button>Details</button>
+            </Link>
               </div>
             </div>
           </div>
