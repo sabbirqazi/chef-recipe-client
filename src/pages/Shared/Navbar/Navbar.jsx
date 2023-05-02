@@ -81,7 +81,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end  lg:mr-20">
         <div className="w-10 rounded-full">
-          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img src="" />
         </div>
           <Link to={"/login"} className="btn btn-primary">Login</Link>
         </div>
