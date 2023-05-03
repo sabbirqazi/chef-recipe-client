@@ -1,19 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser,googleSignIn ,
+    githubSignIn, user,logOut,
+    profileUpdate } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+ 
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [name, setName] = useState(user?.displayName || "");
+  const [photoUrl, setPhotoUrl] = useState(user?.photoURL || "");
 
+ 
+  
   const handleRegistration = (event) => {
     event.preventDefault();
-    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
       setError("password not valid need 8 char ");
       return;
     }
@@ -21,11 +28,15 @@ const Register = () => {
       registerUser(email, password)
         .then((result) => {
           console.log(result.user);
+          profileUpdate(name,photoUrl)
+        
         })
+        
         .catch((err) => {
-          setError(err.message);
+          console.log(err.message);
         });
     }
+   
   };
   return (
     <div className="w-full max-w-md mx-auto">
@@ -50,6 +61,20 @@ const Register = () => {
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+            Your Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="photoUrl"
+            type="text"
+            placeholder="Photo URL"
+            value={photoUrl}
+            onChange={(e) => setPhotoUrl(e.target.value)}
             required
           />
         </div>
@@ -92,20 +117,7 @@ const Register = () => {
            Register
           </button>
         </div>
-        <div className="flex flex-col my-5 gap-5">
-          <button
-            type="button"
-            className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
-          >
-            GitHub
-          </button>
-          <button
-            type="button"
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            Google
-          </button>
-        </div>
+      <SocialLogin></SocialLogin>
         <p className="p-5 text-xl text-center">Have already an account?<Link to="/login"><span className=" text-sky-600"> Login here...</span></Link></p>
       </form>
     </div>

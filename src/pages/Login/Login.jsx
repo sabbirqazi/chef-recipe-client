@@ -3,20 +3,28 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { googleSignIn,
+    githubSignIn, loginUser, setLoading } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const location = useLocation();
   console.log('login page location', location)
-    const from = location.state?.from?.pathname || '/0'
+  const from = location.state?.from?.pathname || '/'
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  
+ 
   const handleLogin = (event) => {
     event.preventDefault();
+    if (password.length < 6) {
+      setErrorMessage("Your password should be at least 6 character long.");
+      return;
+    }
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
@@ -25,10 +33,37 @@ const Login = () => {
           navigate(from, { replace: true })
         })
         .catch((error) => {
-          console.log(error.message);
+          setErrorMessage(error.message);
         });
     }
   };
+
+
+
+  // Login with google
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+       const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+       console.log(error)
+      });
+  };
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+       console.log(error)
+      });
+  };
+
+
   return (
     <>
       <div className="w-full max-w-md mx-auto">
@@ -84,20 +119,7 @@ const Login = () => {
               Log In
             </button>
           </div>
-          <div className="flex flex-col my-5 gap-5">
-            <button
-              type="button"
-              className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
-            >
-              GitHub
-            </button>
-            <button
-              type="button"
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Google
-            </button>
-          </div>
+         <SocialLogin></SocialLogin>
           <p className="p-5 text-xl text-center">New to this website?<Link to="/register"><span className=" text-sky-600"> Register here...</span></Link></p>
         </form>
       </div>

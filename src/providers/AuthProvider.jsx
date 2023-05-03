@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile ,signOut, GithubAuthProvider, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -13,6 +13,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+   
     
     const registerUser = (email, password) => {
         setLoading(true);
@@ -22,8 +23,27 @@ const AuthProvider = ({children}) => {
     const loginUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    }
-    
+    };
+
+  const profileUpdate = (name, photoUrl) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoUrl,
+    });
+  };
+
+
+  const googleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
+
+   
+    const githubSignIn = () => {
+        const githubProvider = new GithubAuthProvider();
+        return signInWithPopup(auth, githubProvider);
+      };
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -43,10 +63,16 @@ const AuthProvider = ({children}) => {
     }, [])
 
     const authInfo = {
+      
         user,
+        setUser,
         loading,
+        setLoading,
         registerUser,
         loginUser,
+        profileUpdate,
+        googleSignIn ,
+        githubSignIn,
         logOut
     }
 

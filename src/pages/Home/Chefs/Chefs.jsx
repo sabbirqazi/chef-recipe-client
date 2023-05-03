@@ -10,7 +10,7 @@ const Chefs = () => {
       .then((response) => response.json())
       .then((data) => setChefsData(data));
   }, []);
-  console.log(chefsData);
+  
   return (
     <>
       <h1>Our Skilled Chefs</h1>

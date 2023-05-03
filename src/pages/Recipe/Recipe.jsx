@@ -1,22 +1,59 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Recipe = ({children}) => {
-    
+   
+    const [banners, setBanners] = useState({})
     const { id } = useParams();
 
-    useEffect(() => {
-      fetch(`http://localhost:5000/allData/${id}`)
-        .then((res) => res.json())
-        .then((data) => console.log(data.details));
-    }, []);
-  
-    console.log(id);
+useEffect(() =>{
+  fetch(`http://localhost:5000/allData/${id}`)
+  .then((response) => response.json())
+  .then((data) => setBanners(data));
+},[])
+
+    console.log(banners.items);
     return (
         <div>
-            <h1>helooooo</h1>
+            This is recipes
+            <div className='mx-28 my-10'>
+                {
+                 banners?.items?.details?.map((banner) =>( 
+                    <div  key={banner?.id} className="card card-side bg-base-100 shadow-xl">
+                    <figure><img src={banner?.chef_picture_url} alt="Movie"/></figure>
+                    <div className="card-body">
+                    <h2 className="card-title">{banner?.chef_name}</h2>
+              <p>{banner?.years_of_experience} years of experience</p>
+              <p>{banner?.number_of_recipes} recipes</p>
+              <p>{banner?.likes} likes</p>
+                     
+                    </div>
+                  </div>
+
+                  ))  
+                }   
+            </div>
+
+          <div className='mx-20  flex gap-10'>
+            {
+              banners?.items?.recipes?.map((recipe) => (
+                <div key={recipe?.id} className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="card-title">{recipe?.name}</h2>
+    <p>Ingredients: {recipe?.ingredients}</p>
+    <p>Cooking Method: {recipe?.cooking_method}</p>
+    <p>Rating: {recipe?.rating}</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">Favorite</button>
+    </div>
+  </div>
+</div>
+              ))
+            }
+          </div>
         </div>
     );
 };

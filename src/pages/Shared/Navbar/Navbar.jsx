@@ -5,7 +5,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+ console.log(user)
   const handleLogOut = () => {
     logOut()
       .then()
@@ -69,8 +69,8 @@ const Navbar = () => {
         </div>
         <div className="navbar-end  lg:mr-20">
           {user && (
-            <div className="w-10 rounded-full">
-              <img src="" />
+            <div className="w-10 rounded-full mr-4">
+              <img src={user.photoURL} />
             </div>
           )}
           {user ? (
