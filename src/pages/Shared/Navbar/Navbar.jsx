@@ -5,7 +5,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
- console.log(user)
+  console.log(user);
   const handleLogOut = () => {
     logOut()
       .then()
@@ -49,7 +49,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">ChefTable</a>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            ChefTable
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -70,7 +72,12 @@ const Navbar = () => {
         <div className="navbar-end  lg:mr-20">
           {user && (
             <div className="w-10 rounded-full mr-4">
-              <img src={user.photoURL} />
+              <img 
+                className="cursor-pointer"
+                src={user.photoURL}
+                alt={user.displayName}
+                onMouseOver={(e) => (e.currentTarget.title = user.displayName)}
+              />
             </div>
           )}
           {user ? (

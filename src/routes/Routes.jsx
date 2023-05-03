@@ -5,7 +5,7 @@ import Register from "../pages/Register/Register";
 import Main from "../layouts/Main";
 
 import Blog from "../pages/Blog/Blog";
-/* import ErrorPage from "../pages/ErrorPage/ErrorPage"; */
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import PrivateRoute from "./PrivateRoute";
 import Recipe from "../pages/Recipe/Recipe";
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     {
      path: "/",
      element: <Main></Main>,
-   /*   errorElement: <ErrorPage />, */
+    errorElement: <ErrorPage />, 
      children: [
         {
             path: "/",
