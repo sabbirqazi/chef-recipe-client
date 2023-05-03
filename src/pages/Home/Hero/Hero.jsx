@@ -7,22 +7,21 @@ const Hero = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: `url("https://img.freepik.com/free-photo/side-view-pizza-with-salami-ham-green-peppers-tomatoes-black-olives-cheese-table_141793-2996.jpg")`,
+          backgroundImage: `url("https://img.freepik.com/free-photo/vegetables-with-salt-corn-cob_1220-688.jpg?w=1380&t=st=1683148255~exp=1683148855~hmac=0cfd66c2497dd24a88cfdecd0976edd9ff25fedd8d44c67fafedaa2a85d03c1e")`,
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="hero-content text-center mr-10 text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl text-left text-amber-500 font-bold">
-              Your Everyday_ <br />
-              Cooking Inspiration
+            <h1 className="mb-5 text-5xl text-center text-base-500 font-bold">
+             chef's table
             </h1>
-            <p className="mb-5 text-xl text-left">
+            <p className="mb-5 text-xl text-center">
               Providing various easy-to-follow recipe all over the world and
               five star chefs to make at home. <br />
               Learn how to make your cooking testier and easier with us.
             </p>
-            <button className="btn btn-wide">Get Started</button>
+            <button className="btn btn-wide btn-warning">Get Started</button>
           </div>
         </div>
       </div>

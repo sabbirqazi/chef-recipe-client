@@ -41,7 +41,7 @@ const Recipe = ({ children }) => {
         ))}
       </div>
 
-      <div className="mx-20  flex gap-10">
+      <div className="mx-20 my-20 gap-10 grid grid-cols-1">
         {banners?.items?.recipes?.map((recipe) => (
           <RecipeDetails 
           key={recipe?.id}
