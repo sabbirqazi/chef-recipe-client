@@ -21,7 +21,6 @@ const Blog = () => {
                   Download This Blog page
                 </button>
               </div>
-    
             </div>
           )}
         </Pdf>

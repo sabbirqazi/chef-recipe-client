@@ -14,15 +14,17 @@ const Hero = () => {
         <div className="hero-content text-center mr-10 text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl text-center text-base-500 font-bold">
-             Discover Yourself <br />
-             With Us
+              Discover Yourself <br />
+              With Us
             </h1>
             <p className="mb-5 text-xl font-semibold text-center">
-              Providing Italian various easy-to-follow recipe all over the world and
-              five star chefs to make at home. <br />
+              Providing Italian various easy-to-follow recipe all over the world
+              and five star chefs to make at home. <br />
               Learn how to make your cooking testier and easier with us.
             </p>
-            <button className="btn btn-wide btn-main font-semibold">Get Started</button>
+            <button className="btn btn-wide btn-main font-semibold">
+              Get Started
+            </button>
           </div>
         </div>
       </div>

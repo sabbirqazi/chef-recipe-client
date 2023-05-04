@@ -10,45 +10,45 @@ import Home from "../pages/Home/Home/Home";
 import PrivateRoute from "./PrivateRoute";
 import Recipe from "../pages/Recipe/Recipe";
 
-
 const router = createBrowserRouter([
-    {
-     path: "/",
-     element: <Main></Main>,
-    errorElement: <ErrorPage />, 
-     children: [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        
-        {
-            path: "/blog",
-            element: <Blog></Blog>
-        },
-        {
-           path: "/:id",
-           element: 
-           <PrivateRoute>
-            <Recipe></Recipe>
-           </PrivateRoute>
-        }
-     ]
-    },
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage />,
+    children: [
+      {
         path: "/",
-        element: <LoginLayOut></LoginLayOut>,
-        children: [
-          {
-            path: "login",
-            element: <Login></Login>,
-          },
-          {
-            path: "register",
-            element: <Register></Register>,
-          },
-        ],
-    },
-])
+        element: <Home></Home>,
+      },
+
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/:id",
+        element: (
+          <PrivateRoute>
+            <Recipe></Recipe>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <LoginLayOut></LoginLayOut>,
+    children: [
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+    ],
+  },
+]);
 
 export default router;

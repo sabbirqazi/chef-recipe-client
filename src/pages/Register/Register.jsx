@@ -6,11 +6,8 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const {
-    registerUser,
-    googleSignIn,
-    githubSignIn,
+    registerUser, 
     user,
-    logOut,
     profileUpdate,
   } = useContext(AuthContext);
 
@@ -29,7 +26,7 @@ const Register = () => {
   const handleRegistration = (event) => {
     event.preventDefault();
     if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
-      setError("password not valid need 8 char ");
+      setError("password is not valid need 6 character ");
       return;
     }
     if ((name, email, password)) {

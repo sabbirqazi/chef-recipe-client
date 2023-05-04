@@ -21,25 +21,43 @@ const Recipe = ({ children }) => {
   console.log(banners.items);
   return (
     <div>
-
       <div className="lg:mx-28 mx-5 my-10 flex flex-col justify-center items-center">
-        <div><h2 className="text-3xl font-semibold text-center mb-10">Welcome To View Recipes</h2></div>
+        <div>
+          <h2 className="text-3xl font-semibold text-center mb-10">
+            Welcome To View Recipes
+          </h2>
+        </div>
         {banners?.items?.details?.map((banner) => (
-        
-             <div
+          <div
             key={banner?.id}
             className="card card-side bg-base-100 shadow-xl flex flex-col chef-banner-small lg:chef-banner-large"
           >
             <figure>
-              <img  className="object-fit" src={banner?.chef_picture_url} alt="Chef" />
+              <img
+                className="object-fit"
+                src={banner?.chef_picture_url}
+                alt="Chef"
+              />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-2xl font-semibold text-center">Name: {banner?.chef_name}</h2>
-              <p className="text-xl font-semibold">Experience: {banner?.years_of_experience} years of experience</p>
-              <p className="text-xl font-semibold">Recipes: {banner?.number_of_recipes} recipes</p>
-              <p className="text-xl font-semibold flex gap-2 items-center justify-center"> <span><HandThumbUpIcon className="h-8 w-8 text-black" /></span> {banner?.likes}+</p>
+              <h2 className="text-2xl font-semibold text-center">
+                Name: {banner?.chef_name}
+              </h2>
+              <p className="text-xl font-semibold">
+                Experience: {banner?.years_of_experience} years of experience
+              </p>
+              <p className="text-xl font-semibold">
+                Recipes: {banner?.number_of_recipes} recipes
+              </p>
+              <p className="text-xl font-semibold flex gap-2 items-center justify-center">
+                {" "}
+                <span>
+                  <HandThumbUpIcon className="h-8 w-8 text-black" />
+                </span>{" "}
+                {banner?.likes}+
+              </p>
             </div>
-          </div> 
+          </div>
         ))}
       </div>
 

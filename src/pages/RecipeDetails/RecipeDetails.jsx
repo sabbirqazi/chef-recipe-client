@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { HeartIcon } from "@heroicons/react/24/solid";
-const RecipeDetails = ({recipe}) => {
-
+const RecipeDetails = ({ recipe }) => {
   const [favoriteIds, setFavoriteIds] = useState([]);
   const isFavorite = favoriteIds.includes(recipe.id);
   const handleFavoriteClick = () => {
@@ -11,15 +10,26 @@ const RecipeDetails = ({recipe}) => {
   };
   return (
     <div>
-          <Toaster />
+      <Toaster />
       <div className="card bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-2xl font-bold">Dish: {recipe?.name}</h2>
-          <p className="text-xl font-semibold"><span className="text-2xl">Ingredients:</span> {recipe?.ingredients}</p>
-          <p className=" text-xl font-semibold"><span className="text-2xl">Cooking Method:</span>{recipe?.cooking_method}</p>
-          <p className=" text-xl font-semibold"><span className="text-2xl">Rating:</span> {recipe?.rating}</p>
+          <p className="text-xl font-semibold">
+            <span className="text-2xl">Ingredients:</span> {recipe?.ingredients}
+          </p>
+          <p className=" text-xl font-semibold">
+            <span className="text-2xl">Cooking Method:</span>
+            {recipe?.cooking_method}
+          </p>
+          <p className=" text-xl font-semibold">
+            <span className="text-2xl">Rating:</span> {recipe?.rating}
+          </p>
           <div className="card-actions justify-end">
-            <button className=" btn btn-primary" disabled={isFavorite} onClick={handleFavoriteClick}>
+            <button
+              className=" btn btn-primary"
+              disabled={isFavorite}
+              onClick={handleFavoriteClick}
+            >
               {isFavorite ? "Favorited" : "Favorite"}
             </button>
           </div>

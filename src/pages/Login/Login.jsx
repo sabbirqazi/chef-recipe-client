@@ -6,8 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { googleSignIn,
-    githubSignIn, loginUser, setLoading } = useContext(AuthContext);
+  const {  loginUser, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,6 +26,7 @@ const Login = () => {
     }
     if ((email, password)) {
       loginUser(email, password)
+      setLoading()
         .then((result) => {
           const loggedInUser = result.user
           
@@ -38,31 +38,9 @@ const Login = () => {
     }
   };
 
+ 
 
-
-  // Login with google
-  const handleGoogleLogin = () => {
-    googleSignIn()
-      .then((result) => {
-       const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-       console.log(error)
-      });
-  };
-  const handleGithubLogin = () => {
-    githubSignIn()
-      .then((result) => {
-        
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-       console.log(error)
-      });
-  };
-
+  
 
   return (
     <> 

@@ -9,7 +9,7 @@ const NewsLetter = () => {
       <div className="flex lg:flex-row flex-col mb-20 gap-10 lg:gap-44">
         <div className="flex gap-4 items-center justify-center">
           <EnvelopeIcon className="h-10 w-10 text-black" />
-          <h3 className="text-3xl font-semibold">Subscribe Our Newsletter</h3>
+          <h3 className="text-3xl font-semibold">Subscribe Our Newsletter!</h3>
         </div>
         <div className="flex gap-2 mx-10">
           <input
