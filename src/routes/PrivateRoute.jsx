@@ -12,7 +12,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     console.log('user in private route', user);
     if(loading){
-        return  <progress className="progress w-56"></progress>
+        return   <div className='text-center mt-5'><progress className="progress w-56"></progress></div>
     }
 
     if(user){
