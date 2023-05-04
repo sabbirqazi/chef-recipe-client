@@ -8,7 +8,7 @@ Find your best italian food recipes from renowned chefs.
 *This app can be used in mobile phone also
 ***
 ## Live Link
-Hosted in Firebase -> [Chef'sTable](https://chef-recipe-hunter-77a78.web.app/)   https://chef-recipe-hunter-77a78.web.app/
+Hosted in Firebase -> [Chef'sTable](https://chef-recipe-hunter-77a78.web.app/) /   https://chef-recipe-hunter-77a78.web.app/
 
 ## Technologies
 ***
