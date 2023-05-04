@@ -12,7 +12,7 @@ const Recipe = ({ children }) => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allData/${id}`)
+    fetch(`https://chef-recipe-hunter-server-side-sabbirqazi.vercel.app/allData/${id}`)
       .then((response) => response.json())
       .then((data) => setBanners(data));
   }, []);

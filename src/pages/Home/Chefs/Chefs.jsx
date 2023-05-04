@@ -10,7 +10,7 @@ const Chefs = () => {
     return   <div className='text-center mt-5'><progress className="progress w-56"></progress></div>
 }
   useEffect(() => {
-    fetch("http://localhost:5000/allData")
+    fetch("https://chef-recipe-hunter-server-side-sabbirqazi.vercel.app/allData")
       .then((response) => response.json())
       .then((data) => setChefsData(data));
   }, []);
