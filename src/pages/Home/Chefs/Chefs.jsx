@@ -17,14 +17,15 @@ const Chefs = () => {
 
   return (
     <>
-      <h1>Our Skilled Chefs</h1>
-      <div className="lg:mx-36 mx-10 my-20 gap-16 grid grid-cols-1 lg:grid-cols-2 ">
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="text-center my-10 text-5xl">Our Skilled Chefs</h1>
+      <div className="my-10 mx-10 grid grid-cols-1 lg:grid-cols-2 justify-between gap-20">
         {chefsData[0]?.chefs?.map((chef) => (
-          <div key={chef?.id} className="card glass">
+          <div key={chef?.id} className="card glass w- lg:w-96">
             <figure>
-              <img
+              <img className=""
                 src={chef?.chef_picture_url}
-                alt="Movie"
+                alt="Chefs"
               />
             </figure>
             <div className="card-body">
@@ -41,6 +42,7 @@ const Chefs = () => {
           </div>
           
         ))}
+      </div>
       </div>
     </>
   );
