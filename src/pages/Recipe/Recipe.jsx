@@ -3,7 +3,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
 
 const Recipe = ({ children }) => {
