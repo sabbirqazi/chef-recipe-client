@@ -9,6 +9,14 @@
  .w-80 {
   width: 384px;
   }
+  .chef-banner-large{
+    width: 740px;
+    height: 680px;
+  }
+  .chef-banner-small{
+    width: 450px;
+    height: 400px;
+  }
 }
 
 .my-container{
