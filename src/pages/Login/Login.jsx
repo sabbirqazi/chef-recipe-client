@@ -29,7 +29,7 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           const loggedInUser = result.user
-          console.log(loggedInUser);
+          
           navigate(from, { replace: true })
         })
         .catch((error) => {
@@ -65,8 +65,12 @@ const Login = () => {
 
 
   return (
-    <>
+    <> 
+      <div className="mt-20">
       <div className="w-full max-w-md mx-auto">
+        <div>
+          <h2 className="text-center text-3xl font-semibold mb-5">Please Login Here...</h2>
+          </div>
         <form
           onSubmit={handleLogin}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -122,6 +126,7 @@ const Login = () => {
          <SocialLogin></SocialLogin>
           <p className="p-5 text-xl text-center">New to this website?<Link to="/register"><span className=" text-sky-600"> Register here...</span></Link></p>
         </form>
+      </div>
       </div>
     </>
   );

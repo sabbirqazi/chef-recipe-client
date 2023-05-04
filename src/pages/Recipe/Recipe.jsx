@@ -37,7 +37,7 @@ const Recipe = ({ children }) => {
               <h2 className="text-2xl font-semibold text-center">Name: {banner?.chef_name}</h2>
               <p className="text-xl font-semibold">Experience: {banner?.years_of_experience} years of experience</p>
               <p className="text-xl font-semibold">Recipes: {banner?.number_of_recipes} recipes</p>
-              <p className="text-xl font-semibold flex gap-2 items-center justify-center"> <span><HandThumbUpIcon className="h-8 w-8 text-amber-500" /></span> Likes: {banner?.likes}+</p>
+              <p className="text-xl font-semibold flex gap-2 items-center justify-center"> <span><HandThumbUpIcon className="h-8 w-8 text-black" /></span> {banner?.likes}+</p>
             </div>
           </div> 
         ))}

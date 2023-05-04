@@ -6,27 +6,29 @@
   .w-96 {
     width: 540px;
   }
- .w-80 {
-  width: 384px;
+  .w-80 {
+    width: 384px;
   }
-  .chef-banner-large{
+  .chef-banner-large {
     width: 740px;
     height: 680px;
   }
-  .chef-banner-small{
+  .chef-banner-small {
     width: 450px;
     height: 400px;
   }
 }
-
-.my-container{
-  @apply px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 
+.btn-main {
+  @apply bg-gradient-to-r from-green-400 to-blue-500 text-base-100 duration-200  hover:from-indigo-500 hover:to-purple-700;
+}
+.my-container {
+  @apply px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8;
 }
 
-.active{
-    @apply font-medium tracking-wide text-gray-50 transition-colors duration-200
-  }
-  
-  .default{
-    @apply font-medium tracking-wide text-zinc-700 transition-colors duration-200 hover:text-cyan-600
-  }
+.active {
+  @apply font-medium tracking-wide text-gray-50 transition-colors duration-200;
+}
+
+.default {
+  @apply font-medium tracking-wide text-zinc-700 transition-colors duration-200 hover:text-cyan-600;
+}

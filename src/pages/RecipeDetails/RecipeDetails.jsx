@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { HeartIcon } from "@heroicons/react/24/solid";
 const RecipeDetails = ({recipe}) => {
 
   const [favoriteIds, setFavoriteIds] = useState([]);

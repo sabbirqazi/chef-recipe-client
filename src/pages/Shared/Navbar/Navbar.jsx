@@ -13,7 +13,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar bg-gray-50">
+      <div className="navbar bg-neutral-300 shadow-xl">
         <div className="navbar-start lg:ml-20">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -50,7 +50,16 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            ChefTable
+            <span className="mr-2">
+              <img
+                className="w-10 h-10"
+                src={
+                  "https://i.ibb.co/yFjsHZz/hot-dog-food-and-restaurant-svgrepo-com.png"
+                }
+                alt="logo"
+              />{" "}
+            </span>{" "}
+            Chef'Table
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -72,7 +81,7 @@ const Navbar = () => {
         <div className="navbar-end  lg:mr-20">
           {user && (
             <div className="w-10 rounded-full mr-4">
-              <img 
+              <img
                 className="cursor-pointer"
                 src={user.photoURL}
                 alt={user.displayName}
